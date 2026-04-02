@@ -1,0 +1,9 @@
+<div class="container">
+  <app-movie-item [movie]="movie" />
+  <form #srcForm="ngForm">
+	<input type="number" name="cardNumber1" placeholder="Enter card number" [(ngModel)]="cardNumberValue" appSourceDirective [cardNumber]="cardNumberValue" (cardTypeDetected)="updateImgSource($event)" />
+ 	<div>
+		<img [src]="imgSrcUrl" width="300" />	
+	</div> 
+  </form> 
+</div>
