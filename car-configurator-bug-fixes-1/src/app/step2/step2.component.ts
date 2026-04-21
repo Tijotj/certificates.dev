@@ -1,0 +1,23 @@
+import {Component, inject, effect } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ConfiguratorService} from '../configurator.service';
+import {CurrencyPipe} from '@angular/common';
+
+@Component({
+  selector: 'app-step2',
+  imports: [
+    ReactiveFormsModule,
+    CurrencyPipe
+  ],
+  templateUrl: './step2.component.html',
+  styleUrl: './step2.component.scss'
+})
+export class Step2Component {
+
+  service = inject(ConfiguratorService);
+  constructor(){
+	effect(()=>{
+		console.log("Hitch box status: ", this.service.currentTowHitchIsSelected());
+	});
+  }
+}
